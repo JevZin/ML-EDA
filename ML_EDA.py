@@ -99,6 +99,7 @@ def metrics(y_train, y_train_pred, y_test, y_test_pred):
     print(f'Model train/test ROC-AUC score ' f'{train_auc:.4f}/{test_auc:.4f}')
 
 
+# This calculates various metrics for regression problems
 def metrics_reg(y_train, y_train_pred, y_test, y_test_pred):
     mse_train = mean_squared_error(y_train, y_train_pred)
     mse_test = mean_squared_error(y_test, y_test_pred)
@@ -115,6 +116,7 @@ def metrics_reg(y_train, y_train_pred, y_test, y_test_pred):
     print(f'R2 test: {r2_test:.3f}')
 
 
+# This generates a heatmap of features in a dataframe
 def heatmap(dataframe):
     df_encoded = dataframe.copy()
     label_encoders = {}
@@ -135,6 +137,7 @@ def heatmap(dataframe):
     plt.show()
 
 
+# This plots the learning curves of a model
 def learning_curves(estimator, x, y):
     train_sizes, train_scores, test_scores = learning_curve(estimator=estimator, X=x, y=y,
                                                             train_sizes=np.linspace(0.1, 1.0, 10),
